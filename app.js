@@ -53,6 +53,6 @@ async function commentOnNewIssue() {
 }
 
 //run the function
-// commentOnNewIssue()
+commentOnNewIssue()
 
 module.exports.commentOnNewIssue = commentOnNewIssue
