@@ -35,7 +35,7 @@ async function commentOnNewIssue() {
   console.log('event action: ' + eventAction)
 
   //if a new issue was opened 
-  if (eventAction === 'opened' && TradOrSimp()) {
+  if (eventAction === 'opened' && TradOrSimp(eventIssueTitle) === 'simplified') {
     console.log('creating welcome comment on issue')
 
     //add a comment to the new issue
