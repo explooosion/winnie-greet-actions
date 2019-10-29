@@ -31,11 +31,15 @@ async function commentOnNewIssue() {
   eventAction = eventJSON.action
   eventIssueNumber = eventJSON.issue.number
   eventIssueTitle = eventJSON.issue.title
+  eventIssueBody = eventJSON.issue.body
 
   console.log('event action: ' + eventAction)
 
   //if a new issue was opened 
-  if (eventAction === 'opened' && TradOrSimp.isSimplified(eventIssueTitle)) {
+  if (
+    eventAction === 'opened' &&
+    TradOrSimp.isSimplified(eventIssueTitle) || TradOrSimp.isSimplified(eventIssueBody)
+  ) {
     console.log('creating welcome comment on issue')
 
     //add a comment to the new issue
