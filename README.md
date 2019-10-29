@@ -4,9 +4,11 @@ The cute winnie will greet to the user who created new issue with simplified.
 
 ## Testing
 
-Create new issue in the test following repo:
+Create the new issue, and wait for Actions.
 
-👉 [winnie-greet-actions-test](https://github.com/explooosion/winnie-greet-actions-test/issues)
+👉 Create Issues: [winnie-greet-actions-test](https://github.com/explooosion/winnie-greet-actions-test/issues)
+
+👉 Wait Actions: [winnie-greet-actions-test/actions](https://github.com/explooosion/winnie-greet-actions-test/actions)
 
 ## Installtion
 
