@@ -1,9 +1,9 @@
 {
   "action": "opened",
   "issue": {
-    "id": 380373316,
+    "id": 1234,
     "node_id": "MDU6SXNzdWUzODAzNzMzMTY=",
-    "number": 26,
+    "number": 5,
     "title": "a new issue"
-      }
+  }
 }

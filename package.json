@@ -1,0 +1,39 @@
+{
+  "name": "winnie-greet-actions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "yarn jest --watchAll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/explooosion/winnie-greet-actions.git"
+  },
+  "keywords": [
+    "github",
+    "github-action",
+    "github-actions"
+  ],
+  "author": {
+    "name": "Robby",
+    "email": "ta7382@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/explooosion/winnie-greet-actions/issues"
+  },
+  "homepage": "https://github.com/explooosion/winnie-greet-actions#readme",
+  "dependencies": {
+    "@octokit/rest": "^15.15.1",
+    "dotenv": "^8.2.0",
+    "traditional-or-simplified": "^1.0.3"
+  },
+  "devDependencies": {
+    "jest": "^23.6.0"
+  },
+  "engines": {
+    "node": ">= 8.12.0"
+  }
+}
