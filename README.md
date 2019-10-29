@@ -2,9 +2,15 @@
 
 The cute winnie will greet to the user who created new issue with simplified.
 
+## Testing
+
+Create new issue in the test following repo:
+
+👉 [winnie-greet-actions-test](https://github.com/explooosion/winnie-greet-actions-test/issues)
+
 ## Installtion
 
-Create .github/worlflows/main.yml
+Create .github/worlflows/main.yml in your repo.
 
 ```yml
 name: Commit Issue Commenter
