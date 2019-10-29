@@ -1,6 +1,6 @@
 # Winnie Greet Actions
 
-The cute winnie will greet to the user who created new issue.
+The cute winnie will greet to the user who created new issue with simplified.
 
 ## Installtion
 
@@ -24,4 +24,4 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 ```
 
-Have fun ~
+Cute.
