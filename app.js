@@ -24,7 +24,7 @@ async function commentOnNewIssue() {
 
   //read contents of action's event.json
   const eventData = await fs.readFileSync('..' + process.env.GITHUB_EVENT_PATH, 'utf8')
-  console.log('eventData', eventData)
+  console.log('event data', eventData)
   const eventJSON = JSON.parse(eventData)
 
   //set eventAction and eventIssueNumber
@@ -35,7 +35,7 @@ async function commentOnNewIssue() {
   console.log('event action: ' + eventAction)
 
   //if a new issue was opened 
-  if (eventAction === 'opened' && TradOrSimp(eventIssueTitle) === 'simplified') {
+  if (eventAction === 'opened' && TradOrSimp.isSimplified(eventIssueTitle)) {
     console.log('creating welcome comment on issue')
 
     //add a comment to the new issue
