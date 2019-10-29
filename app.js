@@ -23,7 +23,7 @@ const eventRepo = eventOwnerAndRepo.slice(slicePos1 + 1, eventOwnerAndRepo.lengt
 async function commentOnNewIssue() {
 
   //read contents of action's event.json
-  const eventData = await fs.readFileSync('.' + process.env.GITHUB_EVENT_PATH, 'utf8')
+  const eventData = await fs.readFileSync('..' + process.env.GITHUB_EVENT_PATH, 'utf8')
   console.log('eventData', eventData)
   const eventJSON = JSON.parse(eventData)
 
