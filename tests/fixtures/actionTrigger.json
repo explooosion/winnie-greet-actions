@@ -1,9 +1,10 @@
 {
   "action": "opened",
   "issue": {
-    "id": 1234,
+    "id": 514473711,
     "node_id": "MDU6SXNzdWUzODAzNzMzMTY=",
-    "number": 5,
-    "title": "a new issue"
+    "number": 7,
+    "title": "标题文字",
+    "body": "内容使用简体字"
   }
 }

@@ -1,6 +1,8 @@
 
 const app = require('../app')
 
+jest.setTimeout(10000);
+
 describe('commentOnNewIssue', () => {
     afterEach(() => {
         jest.resetAllMocks()

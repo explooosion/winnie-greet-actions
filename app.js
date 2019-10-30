@@ -1,37 +1,30 @@
 require('dotenv').config()
+
 const fs = require('fs')
 const TradOrSimp = require('traditional-or-simplified')
-
-const { getRandomImage } = require('./utils')
-
-//require octokit rest.js 
-//more info at https://github.com/octokit/rest.js
 const octokit = require('@octokit/rest')()
+const { getRandomImage, getEventPath } = require('./utils')
 
-//set octokit auth to action's ACCESS_TOKEN env variable
 octokit.authenticate({
   type: 'app',
   token: process.env.ACCESS_TOKEN
 })
 
-//set eventOwner and eventRepo based on action's env variables
-const eventOwnerAndRepo = process.env.GITHUB_REPOSITORY
-const slicePos1 = eventOwnerAndRepo.indexOf('/');
-const eventOwner = eventOwnerAndRepo.slice(0, slicePos1);
-const eventRepo = eventOwnerAndRepo.slice(slicePos1 + 1, eventOwnerAndRepo.length);
+const GITHUB_REPOSITORY = process.env.GITHUB_REPOSITORY
+const OWNER = GITHUB_REPOSITORY.split('/')[0];
+const REPOSITORY = GITHUB_REPOSITORY.split('/')[1];
 
 async function commentOnNewIssue() {
 
-  //read contents of action's event.json
-  const eventData = await fs.readFileSync('..' + process.env.GITHUB_EVENT_PATH, 'utf8')
-  console.log('event data', eventData)
-  const eventJSON = JSON.parse(eventData)
+  // https://help.github.com/en/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-actions#default-environment-variables
+  const eventPayload = await JSON.parse(fs.readFileSync(getEventPath(), 'utf8'))
+  console.log('event data', eventPayload)
 
-  //set eventAction and eventIssueNumber
-  eventAction = eventJSON.action
-  eventIssueNumber = eventJSON.issue.number
-  eventIssueTitle = eventJSON.issue.title
-  eventIssueBody = eventJSON.issue.body
+  // set eventAction and eventIssueNumber
+  eventAction = eventPayload.action
+  eventIssueNumber = process.env.NODE_ENV === 'test' ? process.env.TEST_ISSUE_ID : eventPayload.issue.number
+  eventIssueTitle = eventPayload.issue.title
+  eventIssueBody = eventPayload.issue.body
 
   console.log('event action: ' + eventAction)
 
@@ -44,19 +37,20 @@ async function commentOnNewIssue() {
 
     //add a comment to the new issue
     await octokit.issues.createComment({
-      owner: eventOwner,
-      repo: eventRepo,
+      owner: OWNER,
+      repo: REPOSITORY,
       number: eventIssueNumber,
       body: `![img](${getRandomImage()})`,
     }).then(({ data, headers, status }) => {
       // handle data
-      console.log('break 1')
+      console.log('BOT has send message.')
     })
   }
 
 }
 
 //run the function
-commentOnNewIssue()
+if (process.env.NODE_ENV !== 'test')
+  commentOnNewIssue()
 
 module.exports.commentOnNewIssue = commentOnNewIssue
