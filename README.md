@@ -12,7 +12,7 @@ Create the new issue, and wait for Actions.
 
 ## Installtion
 
-Create .github/worlflows/main.yml in your repo.
+Create .github/workflows/main.yml in your repo.
 
 ```yml
 name: Commit Issue Commenter
