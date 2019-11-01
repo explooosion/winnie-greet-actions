@@ -12,7 +12,13 @@ Create the new issue, and wait for Actions.
 
 ## Installtion
 
-Create .github/workflows/main.yml in your repo.
+1. Create new [personal access token](https://github.com/settings/tokens).
+
+2. Scopes: checked all repo.
+
+3. Add `ACCESS_TOKEN` secret from settings .
+
+2. Create `.github/workflows/main.yml` in your repo.
 
 ```yml
 name: Commit Issue Commenter
@@ -31,5 +37,3 @@ jobs:
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 ```
-
-Cute.
